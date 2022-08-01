@@ -1,0 +1,16 @@
+D:\越南语\Từ Điển\MyDict\MyDict\bin\Debug\MyDict.exe.config
+D:\越南语\Từ Điển\MyDict\MyDict\bin\Debug\MyDict.exe
+D:\越南语\Từ Điển\MyDict\MyDict\bin\Debug\MyDict.pdb
+D:\越南语\Từ Điển\MyDict\MyDict\obj\Debug\MyDict.csprojAssemblyReference.cache
+D:\越南语\Từ Điển\MyDict\MyDict\obj\Debug\MyDict.Form1.resources
+D:\越南语\Từ Điển\MyDict\MyDict\obj\Debug\MyDict.Properties.Resources.resources
+D:\越南语\Từ Điển\MyDict\MyDict\obj\Debug\MyDict.csproj.GenerateResource.cache
+D:\越南语\Từ Điển\MyDict\MyDict\obj\Debug\MyDict.csproj.CoreCompileInputs.cache
+D:\越南语\Từ Điển\MyDict\MyDict\obj\Debug\MyDict.exe
+D:\越南语\Từ Điển\MyDict\MyDict\obj\Debug\MyDict.pdb
+D:\越南语\Từ Điển\MyDict\MyDict\bin\Debug\System.Net.Http.dll
+D:\越南语\Từ Điển\MyDict\MyDict\bin\Debug\System.Security.Cryptography.Algorithms.dll
+D:\越南语\Từ Điển\MyDict\MyDict\bin\Debug\System.Security.Cryptography.Encoding.dll
+D:\越南语\Từ Điển\MyDict\MyDict\bin\Debug\System.Security.Cryptography.Primitives.dll
+D:\越南语\Từ Điển\MyDict\MyDict\bin\Debug\System.Security.Cryptography.X509Certificates.dll
+D:\越南语\Từ Điển\MyDict\MyDict\obj\Debug\MyDict.csproj.CopyComplete
