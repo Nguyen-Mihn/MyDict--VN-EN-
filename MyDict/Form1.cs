@@ -74,16 +74,15 @@ namespace MyDict
                 string pattern = @"\[.*?\]";
                 Regex rg = new Regex(pattern);
                 MatchCollection words = rg.Matches(result);
-                //StringBuilder sb = new StringBuilder();
                 for (int count=0; count<words.Count; count++)
                 {
-                    //sb.Append(words[count].Value);
                     string wordInHex = words[count].Value.Substring(1, words[count].Value.Length - 2);
-                    string word = CharsetProcessor.UnicodeToString(wordInHex);
-                    result = result.Replace(wordInHex, word);
+                    string tmp = string.Copy(wordInHex);
+                    string word = CharsetProcessor.UnicodeToString(tmp);
+                    var regex = new Regex(Regex.Escape(wordInHex));
+                    result = regex.Replace(result, word, 1);
                 }
                 processResult(result);
-
             }
         }
        private void searchButton_Click(object sender, EventArgs e)
