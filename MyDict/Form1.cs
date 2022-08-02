@@ -20,10 +20,19 @@ namespace MyDict
         {
             InitializeComponent();
         }
-
+        public string ToUnicodeString(string str)
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach (var c in str)
+            {
+                sb.Append(((int)c).ToString("X4"));
+            }
+            return sb.ToString();
+        }
         private void searchButton_Click(object sender, EventArgs e)
         {
-            string url = "http://123.56.139.184/tudien/search.php" + "?tu=" + wordBox.Text.ToString();
+            //MessageBox.Show(ToUnicodeString(wordBox.Text));
+            string url = "http://123.56.139.184/tudien/search.php" + "?tu=[" + ToUnicodeString(wordBox.Text) + "]";
             getBase(url);
         }
         private void getBase(string url)
@@ -98,7 +107,8 @@ namespace MyDict
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            string url = "http://123.56.139.184/tudien/add.php" + "?tu=" + wordBox.Text.ToString() + "&nghia=" + definitionBox.Text;
+            string url = "http://123.56.139.184/tudien/add.php" + "?tu=[" + ToUnicodeString(wordBox.Text.ToString()) 
+                + "]&nghia=" + definitionBox.Text;
             getBase(url);
         }
 
@@ -110,7 +120,8 @@ namespace MyDict
 
         private void updateButton_Click(object sender, EventArgs e)
         {
-            string url = "http://123.56.139.184/tudien/update.php?tu=" + wordBox.Text + "&nghia=" + definitionBox.Text;
+            string url = "http://123.56.139.184/tudien/update.php?tu=[" + ToUnicodeString(wordBox.Text)
+                + "&nghia=]" + definitionBox.Text;
             getBase(url);
         }
 
