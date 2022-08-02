@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -121,13 +117,14 @@ namespace MyDict
         private void updateButton_Click(object sender, EventArgs e)
         {
             string url = "http://123.56.139.184/tudien/update.php?tu=[" + ToUnicodeString(wordBox.Text)
-                + "&nghia=]" + definitionBox.Text;
+                + "]&nghia=" + definitionBox.Text;
             getBase(url);
         }
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
-
+            string url = "http://123.56.139.184/tudien/delete.php?tu=[" + ToUnicodeString(wordBox.Text) +"]";
+            getBase(url);
         }
     }
 }
