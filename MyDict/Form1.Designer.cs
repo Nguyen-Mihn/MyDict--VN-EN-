@@ -35,7 +35,18 @@
             this.addButton = new System.Windows.Forms.Button();
             this.searchButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
+            this.clearButton = new System.Windows.Forms.Button();
+            this.instructionBox = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
+
+            // 
+            // wordBox
+            // 
+            this.wordBox.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.wordBox.Location = new System.Drawing.Point(19, 354);
+            this.wordBox.Name = "wordBox";
+            this.wordBox.Size = new System.Drawing.Size(558, 30);
+            this.wordBox.TabIndex = 0;
             // 
             // definitionBox
             // 
@@ -45,15 +56,8 @@
             this.definitionBox.Location = new System.Drawing.Point(19, 26);
             this.definitionBox.Name = "definitionBox";
             this.definitionBox.Size = new System.Drawing.Size(663, 313);
-            this.definitionBox.TabIndex = 0;
+            this.definitionBox.TabIndex = 1;
             this.definitionBox.Text = "";
-            // 
-            // wordBox
-            // 
-            this.wordBox.Location = new System.Drawing.Point(19, 354);
-            this.wordBox.Name = "wordBox";
-            this.wordBox.Size = new System.Drawing.Size(558, 25);
-            this.wordBox.TabIndex = 1;
             // 
             // updateButton
             // 
@@ -63,6 +67,7 @@
             this.updateButton.TabIndex = 2;
             this.updateButton.Text = "Update";
             this.updateButton.UseVisualStyleBackColor = true;
+            this.updateButton.Visible = false;
             this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
             // 
             // reverseButton
@@ -73,6 +78,7 @@
             this.reverseButton.TabIndex = 3;
             this.reverseButton.Text = "Reverse";
             this.reverseButton.UseVisualStyleBackColor = true;
+            this.reverseButton.Visible = false;
             this.reverseButton.Click += new System.EventHandler(this.reverseButton_Click);
             // 
             // addButton
@@ -84,6 +90,7 @@
             this.addButton.Text = "Add";
             this.addButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.addButton.UseVisualStyleBackColor = true;
+            this.addButton.Visible = false;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // searchButton
@@ -94,6 +101,7 @@
             this.searchButton.TabIndex = 5;
             this.searchButton.Text = "Search";
             this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.Visible = false;
             this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
             // deleteButton
@@ -104,13 +112,39 @@
             this.deleteButton.TabIndex = 6;
             this.deleteButton.Text = "Delete";
             this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.Visible = false;
             this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
+            // 
+            // clearButton
+            // 
+            this.clearButton.Location = new System.Drawing.Point(647, 373);
+            this.clearButton.Name = "clearButton";
+            this.clearButton.Size = new System.Drawing.Size(91, 27);
+            this.clearButton.TabIndex = 7;
+            this.clearButton.Text = "Clear";
+            this.clearButton.UseVisualStyleBackColor = true;
+            this.clearButton.Visible = false;
+            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
+            // 
+            // instructionBox
+            // 
+            this.instructionBox.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.instructionBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.instructionBox.Location = new System.Drawing.Point(715, 38);
+            this.instructionBox.Name = "instructionBox";
+            this.instructionBox.Size = new System.Drawing.Size(249, 275);
+            this.instructionBox.TabIndex = 8;
+            this.instructionBox.Text = "";
+            
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.ClientSize = new System.Drawing.Size(991, 450);
+            this.Controls.Add(this.instructionBox);
+            this.Controls.Add(this.clearButton);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.searchButton);
             this.Controls.Add(this.addButton);
@@ -134,6 +168,8 @@
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.Button deleteButton;
+        private System.Windows.Forms.Button clearButton;
+        private System.Windows.Forms.RichTextBox instructionBox;
     }
 }
 
