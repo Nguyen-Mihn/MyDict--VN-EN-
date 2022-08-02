@@ -38,13 +38,13 @@ namespace MyDict
         {
             if (e.KeyCode == Keys.Enter)
             {
-                string url = "http://123.56.139.184/tudien/search.php" + "?tu=[" + ToUnicodeString(wordBox.Text) + "]";
+                string url = "http://123.56.139.184/tudien/search.php" + "?tu=[" + CharsetProcessor.ToUnicodeString(wordBox.Text) + "]";
                 string result = getBase(url);
                 processResult(result);
             }
             else if (e.Modifiers == Keys.Control && e.KeyCode == Keys.L)
             {
-                string url = "http://123.56.139.184/tudien/add.php" + "?tu=[" + ToUnicodeString(wordBox.Text.ToString())
+                string url = "http://123.56.139.184/tudien/add.php" + "?tu=[" + CharsetProcessor.ToUnicodeString(wordBox.Text.ToString())
                 + "]&nghia=" + definitionBox.Text;
                 string result = getBase(url);
                 processResult(result);
@@ -57,14 +57,14 @@ namespace MyDict
             }
             else if (e.Modifiers == Keys.Control && e.KeyCode == Keys.U)
             {
-                string url = "http://123.56.139.184/tudien/update.php?tu=[" + ToUnicodeString(wordBox.Text)
+                string url = "http://123.56.139.184/tudien/update.php?tu=[" + CharsetProcessor.ToUnicodeString(wordBox.Text)
                  + "]&nghia=" + definitionBox.Text;
                 string result = getBase(url);
                 processResult(result);
             }
             else if (e.Modifiers == Keys.Control && e.KeyCode == Keys.J)
             {
-                string url = "http://123.56.139.184/tudien/delete.php?tu=[" + ToUnicodeString(wordBox.Text) + "]";
+                string url = "http://123.56.139.184/tudien/delete.php?tu=[" + CharsetProcessor.ToUnicodeString(wordBox.Text) + "]";
                 string result = getBase(url);
                 processResult(result);
             }
@@ -79,55 +79,17 @@ namespace MyDict
                 {
                     //sb.Append(words[count].Value);
                     string wordInHex = words[count].Value.Substring(1, words[count].Value.Length - 2);
-                    string word = UnicodeToString(wordInHex);
+                    string word = CharsetProcessor.UnicodeToString(wordInHex);
                     result = result.Replace(wordInHex, word);
                 }
                 processResult(result);
 
             }
         }
-        public string UnicodeToString(string text)
-        {
-            if (string.IsNullOrEmpty(text)) return null;
-
-            string temp = null;
-            bool flag = false;
-
-            int len = text.Length / 4;
-            if (text.StartsWith("0x") || text.StartsWith("0X"))
-            {
-                len = text.Length / 6;//0x in Unicode string
-                flag = true;
-            }
-
-            StringBuilder sb = new StringBuilder(len);
-            for (int i = 0; i < len; i++)
-            {
-                if (flag)
-                    temp = text.Substring(i * 6, 6).Substring(2);
-                else
-                    temp = text.Substring(i * 4, 4);
-
-                byte[] bytes = new byte[2];
-                bytes[1] = byte.Parse(int.Parse(temp.Substring(0, 2), NumberStyles.HexNumber).ToString());
-                bytes[0] = byte.Parse(int.Parse(temp.Substring(2, 2), NumberStyles.HexNumber).ToString());
-                sb.Append(Encoding.Unicode.GetString(bytes));
-            }
-            return sb.ToString();
-        }
-        public string ToUnicodeString(string str)
-        {
-            StringBuilder sb = new StringBuilder();
-            foreach (var c in str)
-            {
-                sb.Append(((int)c).ToString("X4"));
-            }
-            return sb.ToString();
-        }
-        private void searchButton_Click(object sender, EventArgs e)
+       private void searchButton_Click(object sender, EventArgs e)
         {
             //MessageBox.Show(ToUnicodeString(wordBox.Text));
-            string url = "http://123.56.139.184/tudien/search.php" + "?tu=[" + ToUnicodeString(wordBox.Text) + "]";
+            string url = "http://123.56.139.184/tudien/search.php" + "?tu=[" + CharsetProcessor.ToUnicodeString(wordBox.Text) + "]";
             string result = getBase(url);
             processResult(result);
         }
@@ -212,7 +174,7 @@ namespace MyDict
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            string url = "http://123.56.139.184/tudien/add.php" + "?tu=[" + ToUnicodeString(wordBox.Text.ToString()) 
+            string url = "http://123.56.139.184/tudien/add.php" + "?tu=[" + CharsetProcessor.ToUnicodeString(wordBox.Text.ToString()) 
                 + "]&nghia=" + definitionBox.Text;
             string result = getBase(url);
             processResult(result);
@@ -227,7 +189,7 @@ namespace MyDict
 
         private void updateButton_Click(object sender, EventArgs e)
         {
-            string url = "http://123.56.139.184/tudien/update.php?tu=[" + ToUnicodeString(wordBox.Text)
+            string url = "http://123.56.139.184/tudien/update.php?tu=[" + CharsetProcessor.ToUnicodeString(wordBox.Text)
                 + "]&nghia=" + definitionBox.Text;
             string result = getBase(url);
             processResult(result);
@@ -235,7 +197,7 @@ namespace MyDict
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
-            string url = "http://123.56.139.184/tudien/delete.php?tu=[" + ToUnicodeString(wordBox.Text) +"]";
+            string url = "http://123.56.139.184/tudien/delete.php?tu=[" + CharsetProcessor.ToUnicodeString(wordBox.Text) +"]";
             string result = getBase(url);
             processResult(result);
         }
